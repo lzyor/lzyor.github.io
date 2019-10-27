@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <!-- <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+    <script src="https://cdn.bootcss.com/velocity/2.0.5/velocity.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/muse-ui@3.0.2/dist/muse-ui.css">
+    <script src="https://cdn.jsdelivr.net/npm/muse-ui@3.0.2/dist/muse-ui.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/muse-ui@3.0.2/dist/muse-ui.min.css"> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/muse-ui@3.0.2/dist/muse-ui.min.js"></script> -->
+
+    <title>t1</title>
+
+    <style>
+        .fade-enter-active,
+        .fade-leave-active {
+            transform: opacity .5s;
+        }
+
+        .fade-enter,
+        .fade-leave {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <template>
+            <img src="https://raw.githubusercontent.com/lzyor/PicGo/master/20191027211417.png?token=ANKYD373CVYJACGOW3R2QC25WWMGS" alt="" srcset="">
+        </template>
+        <input @keyup="h" type="text">
+        <transition name="fade">
+            <div v-blink:e.as.d.a.a="1000">{{t1}}</div>
+        </transition>
+        <hr ref="hr">
+        {{t2}}
+    </div>
+</body>
+
+<script>
+    Vue.directive('blink', {
+        bind(el, binding) {
+            console.log(binding);
+
+            let v = true;
+            setInterval(() => {
+                v = !v;
+                el.style.visibility = v ? 'visible' : 'hidden';
+            }, binding.value || 1000);
+        }
+    });
+
+    let app = new Vue({
+        el: '#app',
+        data: {
+            t1: 'A',
+            t2: 'B',
+        },
+        computed: {
+
+        },
+        methods: {
+            h() {
+                console.log('OK');
+
+            }
+        },
+        filters: {
+
+        },
+        watch: {
+
+        },
+        mounted() {
+            this.$refs.hr.style.backgroundColor = 'red';
+            this.$refs.hr.style.height = '2px';
+        },
+        updated() {
+            console.log('updated');
+
+        },
+    });
+</script>
+
+</html>
