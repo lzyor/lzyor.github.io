@@ -34,62 +34,10 @@
 
 <body>
     <div id="app">
-        <template>
-            https://raw.githubusercontent.com/shadowsocksrr/breakwa11.github.io/master/free/freenodeplain.txt
-            <img src="https://raw.githubusercontent.com/lzyor/PicGo/master/20191027230226.png?token=ANKYD36YT3MHXUS5N6FOYZS5WWY4E" alt="" srcset="">
-        </template>
-        <input @keyup="h" type="text">
-        <transition name="fade">
-            <div v-blink:e.as.d.a.a="1000">{{t1}}</div>
-        </transition>
-        <hr ref="hr">
-        {{t2}}
     </div>
 </body>
 
 <script>
-    Vue.directive('blink', {
-        bind(el, binding) {
-            console.log(binding);
-
-            let v = true;
-            setInterval(() => {
-                v = !v;
-                el.style.visibility = v ? 'visible' : 'hidden';
-            }, binding.value || 1000);
-        }
-    });
-
-    let app = new Vue({
-        el: '#app',
-        data: {
-            t1: 'A',
-            t2: 'B',
-        },
-        computed: {
-
-        },
-        methods: {
-            h() {
-                console.log('OK');
-
-            }
-        },
-        filters: {
-
-        },
-        watch: {
-
-        },
-        mounted() {
-            this.$refs.hr.style.backgroundColor = 'red';
-            this.$refs.hr.style.height = '2px';
-        },
-        updated() {
-            console.log('updated');
-
-        },
-    });
 </script>
 
 </html>
